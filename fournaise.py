@@ -49,12 +49,64 @@ for ligne in projectile:
             elif pas_droite > pas_gauche and pas_droite > pas_avant:
                 print('On a surtout marcher vers la gauche.')
             else:
-                print("On a surtout marcher vers l'avant.")
+                print("On a surtout marcher vers l'avant.\n")
             break
 projectile.close()
 
+
 # Organiser la famille dodo
 dodo = open('lafamilleDodo.txt', "r")
-dodo.split(', ')
-print(dodo)
+x = dodo.readline()
+nombre = x.split(", ")
+famille = []
+
+for i in range (len(nombre)):
+    a = int(nombre[i])
+    famille.append(a)
+    #print(nombre[i])
+
+famille.sort()
+print(len(famille))
+
+x = 6
+
+# Enlève les doublons de la liste
+for i in range(len(famille)-x):
+    if famille[i] == famille[i+1]:
+        del famille[i]
+        x -= 1
+
+#print(famille)
 dodo.close()
+
+# Tri les dodos mineurs et les majeurs
+age = open('ageDodo.txt', "r")
+x = age.readline()
+separate = x.split(', ')
+
+majeur = []
+mineur = []
+
+print(separate)
+age_list = []
+for i in range (len(separate)):
+    a = int(nombre[i])
+    age_list.append(a)
+
+print(age_list)
+
+for i in range(len(age_list)):
+    if age_list[i] < 5:
+        mineur.append(age_list[i])
+    elif age_list[i] >= 5:
+        majeur.append(age_list[i])
+    
+print(f'Il y a {len(mineur)} dodos mineurs.\nIl y a {len(majeur)} dodos majeurs.')
+
+
+
+
+
+
+
+
