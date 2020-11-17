@@ -84,24 +84,24 @@ age = open('ageDodo.txt', "r")
 x = age.readline()
 separate = x.split(', ')
 
-majeur = []
-mineur = []
+majeur = 0
+mineur = 0
 
 print(separate)
 age_list = []
 for i in range (len(separate)):
-    a = int(nombre[i])
+    a = int(separate[i])
     age_list.append(a)
 
 print(age_list)
 
 for i in range(len(age_list)):
     if age_list[i] < 5:
-        mineur.append(age_list[i])
-    elif age_list[i] >= 5:
-        majeur.append(age_list[i])
+        mineur += 1
+    else:
+        majeur += 1
     
-print(f'Il y a {len(mineur)} dodos mineurs.\nIl y a {len(majeur)} dodos majeurs.')
+print(f'Il y a {mineur} dodos mineurs.\nIl y a {majeur} dodos majeurs.')
 
 
 
